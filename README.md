@@ -57,5 +57,5 @@ app.api.timeout=${APP_API_TIMEOUT:4000}
 java -jar build/quarkus-app/quarkus-run.jar
 
 #Сборка в нативном режиме
-./gradlew --no-daemon --build-cache build -x test -x checkstyleMain -x spotlessJavaApply -x spotlessJava -Dquarkus.native.enabled=true -Dquarkus.native.remote-container-build=false -Dquarkus.package.jar.enabled=false
+./gradlew --no-daemon --build-cache build -x test -x spotlessJavaApply -x spotlessJava -Dquarkus.native.enabled=true -Dquarkus.native.remote-container-build=false -Dquarkus.package.jar.enabled=false
 ```
