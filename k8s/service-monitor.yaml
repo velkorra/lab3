@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: work-app-sm
+  labels:
+    release: monitoring # Это связывает его с установленным Prometheus
+spec:
+  selector:
+    matchLabels:
+      app: work-app
+  endpoints:
+  - port: http
+    path: /q/metrics
+    interval: 5s

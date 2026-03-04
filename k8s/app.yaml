@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: work-app
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: work-app
+  template:
+    metadata:
+      labels:
+        app: work-app
+    spec:
+      containers:
+      - name: work-app
+        image: registry.hakurei.dev/devops/lab3/quarkus-app:latest
+        imagePullPolicy: Always 
+        ports:
+        - containerPort: 8080
+          name: http
+        env:
+        - name: APP_API_LIMIT
+          value: "120"
+        - name: APP_API_TIMEOUT
+          value: "1500"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: work-app
+  labels:
+    app: work-app
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+    name: http
+  selector:
+    app: work-app
+  type: ClusterIP

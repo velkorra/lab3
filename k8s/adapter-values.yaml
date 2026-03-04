@@ -1,0 +1,8 @@
+rules:
+  custom:
+    - seriesQuery: 'work_active_requests'
+      resources:
+        template: "<<.Resource>>"
+      name:
+        as: "work_active_requests_hpa"
+      metricsQuery: 'sum(work_active_requests) by (pod, namespace)'
