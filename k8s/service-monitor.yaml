@@ -2,8 +2,9 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: work-app-sm
+  namespace: lab3
   labels:
-    release: monitoring # Это связывает его с установленным Prometheus
+    release: monitoring
 spec:
   selector:
     matchLabels:
