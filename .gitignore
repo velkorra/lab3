@@ -27,7 +27,6 @@ bin/
 
 # macOS
 .DS_Store
-Dockerfile
 docker-compose.yml
 # Quarkus
 target/
