@@ -9,7 +9,7 @@ RUN java -cp gradle/wrapper/gradle-wrapper.jar org.gradle.wrapper.GradleWrapperM
 
 COPY src /code/src
 
-RUN java -cp gradle/wrapper/gradle-wrapper.jar org.gradle.wrapper.GradleWrapperMain build -Dquarkus.package.type=native -x test --no-daemon
+RUN java -cp gradle/wrapper/gradle-wrapper.jar org.gradle.wrapper.GradleWrapperMain build -Dquarkus.package.type=native -Dquarkus.native.native-image-xmx=3g -x test --no-daemon
 
 FROM debian:bookworm-slim
 WORKDIR /work/
