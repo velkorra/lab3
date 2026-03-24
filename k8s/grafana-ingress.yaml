@@ -3,16 +3,10 @@ kind: Ingress
 metadata:
   name: grafana-ingress
   namespace: monitoring
-  annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
-  ingressClassName: traefik 
-  tls:
-  - hosts:
-    - grafana-lab3.hakurei.dev
-    secretName: grafana-lab3-tls
+  ingressClassName: traefik
   rules:
-  - host: grafana-lab3.hakurei.dev
+  - host: grafana.local
     http:
       paths:
       - path: /

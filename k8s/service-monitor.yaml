@@ -8,7 +8,7 @@ metadata:
 spec:
   namespaceSelector:
     matchNames:
-      - lab3           
+      - lab3            
   selector:
     matchLabels:
       app: work-app

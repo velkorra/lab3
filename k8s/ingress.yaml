@@ -3,16 +3,10 @@ kind: Ingress
 metadata:
   name: work-app-ingress
   namespace: lab3
-  annotations:
-    kubernetes.io/ingress.class: traefik
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
-  tls:
-  - hosts:
-    - app-lab3.hakurei.dev
-    secretName: app-lab3-tls
+  ingressClassName: traefik
   rules:
-  - host: app-lab3.hakurei.dev
+  - host: app.local
     http:
       paths:
       - path: /

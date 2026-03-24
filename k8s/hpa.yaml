@@ -2,6 +2,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: work-app-hpa
+  namespace: lab3
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
@@ -16,11 +17,11 @@ spec:
         name: work_active_requests_hpa
       target:
         type: AverageValue
-        averageValue: "50" # Когда активных запросов > 50 на под, создаем новый
+        averageValue: "50" 
   behavior:
     scaleUp:
-      stabilizationWindowSeconds: 0 # Мгновенная реакция на рост
+      stabilizationWindowSeconds: 0 
       policies:
       - type: Pods
-        value: 4 # Добавлять до 4 подов сразу
+        value: 4 
         periodSeconds: 10
